@@ -1,27 +1,61 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
-    <style>
-        .map {
-            width: 800px;
-            height: 600px;
-            background: #ccc;
-            position: relative;
-            overflow: hidden;
-        }
-    </style>
+    <title>冒泡排序原理</title>
 </head>
+<style>
+    html,
+    body {
+        height: 100%;
+    }
+    ul, li {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        width: 1100px;
+        list-style: none;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    li {
+        transition: all 1s;
+        float: left;
+    }
+
+    .active {
+        background: yellowgreen;
+    }
+
+    input {
+        display: block;
+        width: 80px;
+        height: 50px;
+        font-size: 16px;
+        color: #666;
+        outline: none;
+    }
+
+    .disabled {
+        cursor: not-allowed;
+    }
+</style>
 <body>
-<div class="map" id="map"></div>
-<script src="./index.js"></script>
+<input value="冒泡排序" type="button"/>
+
+<ul id="ul">
+
+</ul>
+<script src="jquery-1.12.4.min.js"></script>
+<script src="冒泡排序动画.js"></script>
 <script>
-    var map = document.getElementById('map');
-
-    var game = new Game(map);
-    game.render();
-
+    var liNew = new Pillar({
+        num:20
+    });
+    liNew.render();
 </script>
 </body>
 </html>
