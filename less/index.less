@@ -1,0 +1,324 @@
+/* @import :'base'; */
+@mainColor:#e92322;
+a {
+    text-decoration: none !important;
+}
+.pseudo {
+    width: 100%;
+    height: 4px;
+    background: @mainColor;
+    position: absolute;
+    content: '';
+    bottom: 0;
+} 
+.circle {
+    content: '';
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #f0f0f0;
+}
+/* 头部区域 */
+#header {
+    /* 顶部通栏 */
+    .topbar {
+        height: 40px;
+        line-height: 40px;
+        .row {
+            >div {
+                border-left:1px solid #cccccc; 
+                &:first-of-type {
+                    border-left:none; 
+                }
+                a {
+                    text-decoration: none;
+                    color: #000 ;
+                    
+                    &.btn-sm {
+                        background-color: @mainColor;
+                        color: #fff;
+                    }
+                    &.mobile-link {
+                        display: block;
+                        >img {
+                            position: absolute;
+                            top: 40px;
+                            left: 50%;
+                            transform:translateX(-50%);
+                            display: none;
+                            z-index: 8888;
+                        }
+                        &:hover img{
+                            display: block;
+                            
+                        }    
+                    }
+                }
+            }
+        }
+    }
+    /*导航条*/
+    .navbar-default {
+        margin-bottom: 0;
+        z-index: 998;
+        top: 0;
+        width: 100%;
+        .container {
+            .navbar-header {   
+            padding: 15px 0;    
+                .navbar-brand {
+                    line-height: 30px;
+                    font-size: 30px;
+                    .icon-icon {
+                        color: @mainColor;
+                    }
+                    .icon-logo {
+                        color: #000;
+                    }
+                }
+                
+            }
+            .navbar-collapse {
+                li {
+                    &.active:after {
+                        .pseudo;
+                    }
+                    >a {
+                        line-height: 50px;
+                        &.white {
+                            background-color: #fff;
+                        }
+                    }
+                    
+                    &:before {
+                        .pseudo;
+                        display: none;
+                    }
+                    &:hover:before {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+/* 轮播图 */
+#slide {    
+    margin-top: 0;
+    .slide { 
+        .carousel-inner {
+            .item { 
+                .mobileImg {
+                    display: block;
+                    img {
+                        width: 100%;
+                    }  
+                }
+                .pcImg {
+                    display: block;
+                    height: 410px;
+                    width: 100%;
+                    background-position: center center;
+                }
+            }
+        }
+    }
+}
+/* 特色部分 */
+#feature {
+    .row {
+        padding: 30px 0;
+        ul {
+            li {
+                >a {
+                    color: #666;
+                    &:hover {
+                        color: @mainColor;
+                    }
+                }
+            }
+        }
+    }
+}
+/* 预约部分 */
+#booking {
+    padding: 20px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+/* 产品部分区域 */
+#products {
+    padding: 40px 0;
+    background-color: #f0f0f0;
+    .ul-wapper {
+        width: 100%;
+        overflow-x: auto;
+        .nav-tabs {
+            width: 580px;
+            >li {
+                >a {
+                    border: 0;
+                    color: #333;
+                    font-size: 16px;
+                    &:hover {
+                        background-color: transparent;
+                    }
+                }
+                &.active {
+                    >a {
+                        background-color: transparent;
+                        border-bottom: 3px solid @mainColor;
+                    }
+                }
+            }
+        }
+    }
+    .tab-pane {
+        >.row {
+            >div {
+                margin-top: 40px;
+                >.product-box {
+                    position: relative;
+                    background-color: #fff;
+                    &.active {
+                        background-color: @mainColor;
+                        color: #fff;
+                        .product-left {
+                            &::before {
+                                content: "\e915";
+                                font-family: 'itcast';
+                                font-size: 30px;
+                                position: absolute;
+                                left: 0;
+                                top: -6px;
+                            }
+                        }
+                    }
+                    .product-left {
+                        margin-right: 120px;
+                        padding: 10px;
+                        >h4 {
+                            text-align: center;
+                        }
+                        >.row {
+                            >div {
+                                margin-top: 10px;
+                                &:nth-of-type(even) {
+                                    text-align: right;
+                                }
+                                >p {
+                                    margin-bottom: 0;
+                                }
+                            }
+                        }
+                    }
+                    .product-right {
+                        width: 120px;
+                        height: 100%;
+                        position: absolute;
+                        right: 0;
+                        top: 0px;
+                        border-left: 1px dashed #ccc;
+                        text-align: center;
+                        padding-top: 40px;
+                        >p {
+                            margin-bottom: 0;
+                            >strong {
+                                font-size: 30px;
+                            }
+                        }
+                        &::before,
+                        &::after {
+                            .circle;
+                            left: -8px;
+                        }
+                        &::before {
+                            top: -8px;
+                            box-shadow: 1px 1px 1px 1px #aaa;
+                        }
+                        &::after {
+                            bottom: -8px;
+                            box-shadow: -1px -1px 1px 1px #aaa;
+                        }
+                        .tooltips {
+                            /* 提示信息的父元素需要够宽才能放下提示信息 */
+                            width: 100%;
+                            position: absolute;
+                            top: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* 新闻区域 */
+#news {
+    padding: 30px 0;
+     .row {
+        >div {
+            h4 {
+                text-align: center;
+                border-bottom: 1px dashed #ccc;
+                line-height: 40px;
+                position: relative;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 10px;
+                    height: 10px;
+                    right: -10px;
+                    bottom: -5px;
+                    border-radius: 50%;
+                    border: 1px solid #ccc;
+                }
+            }
+            .nav-tabs {
+                font-size: 26px;
+                >li {
+                    margin-top: 10px;
+                    >a {
+                        border-radius: 50%;
+                    }
+                    &.active {
+                        >a {
+                            
+                            background-color: @mainColor;
+                        }
+                    }
+                }
+            }
+            .tab-pane {
+                >ul {
+                    >li {
+                        list-style:none;
+                        line-height: 40px;
+                        >a {
+                            color:#666;
+                        }
+                    }
+                }
+            }
+        }
+     }
+}
+/* 合作伙伴区域 */
+#partner {
+    text-align: center;
+    ul {
+        >li {
+            float: left;
+            width: calc(100%/9);
+            list-style: none;
+            font-size: 60px;
+            >a {
+                color:#666;
+                &:hover {
+                    color: @mainColor;
+                }
+            }
+        }
+
+    }
+}
